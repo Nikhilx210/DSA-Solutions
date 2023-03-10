@@ -83,38 +83,19 @@ public class activity_selection {
         // add your code here
         sort(start, end , 0, n-1);
         int ans=1;
-        Boolean lastday=true;
+        int  lastday=end[0];
         for(int i=1;i<start.length;i++){
-            if(start[i]>end[i-1]){
+            if(start[i]>lastday){
                 ans++;
-                lastday=true;
+                lastday=end[i];
             }
-            else if(start[i]==start[i-1]){
-                if(end[i]<end[i-1]){
-                    lastday=true;
+            else if(lastday>start[i]){
+                if(end[i]<lastday){
                     ans++;
-                }else{
-                    lastday=false;
-                }
-            }
-            else{
-                if(!lastday){
-                    ans++;
-                    lastday=true;
-                }
-                else{
-                    if(end[i]-start[i]<end[i-1]-start[i-1]){
-                        lastday=true;
-                    }
-                    else{
-                        lastday=false;
-                    }
-                    
+                    lastday=end[i];
                 }
             }
         }
-        System.out.println(Arrays.toString(start));
-        System.out.println(Arrays.toString(end));
         return ans;
     }
     public static void main(String[] args) {
