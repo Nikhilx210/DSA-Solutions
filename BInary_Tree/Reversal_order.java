@@ -29,7 +29,6 @@ public class Reversal_order {
             }
             int a =queue.remove().data;
             ans.add(a);
-
         }
         for(int i=0;i<ans.size()/2;i++){
             int temp = ans.get(i);
